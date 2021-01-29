@@ -1,0 +1,1100 @@
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    font-family: Source Sans Pro;
+}
+
+header{
+    text-decoration: none;
+    background-image: url(../images/people-watching-soccer-game.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#ffffff;
+    min-height: 30em;
+    font-family: Playfair Display;
+}
+
+#banner-text{
+    font-size: 2.3em;
+    margin-top: 12%;
+    width: 55%;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    word-spacing: 0.2em;
+}
+
+#header-container{
+    background-color: rgba(4,9,30,0.8);
+    font-family: Source Sans Pro;
+    min-height: 30em;
+}
+
+.wrapper{
+    width:85%;
+    margin:auto;
+}
+
+.header-top{
+    border-bottom:1px solid #39353e;
+    display: flex;
+    padding: 2% 0 0 0;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#main-nav a{
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+#mobile-nav a{
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.header-logo{
+    font-family: Playfair Display;
+    font-size: 3em;
+    color:#ffffff;
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width:50%;
+}
+
+.header-logo span{
+    color: #ffffff;
+    line-height: 2em;
+}
+
+.logo{
+    display: inline-block;
+    width:8%;
+}
+
+.header-logo img{
+    width: 100%;
+    margin-top:3%;
+    vertical-align: unset;
+}
+
+#mobile-nav{
+    display:none;
+}
+
+nav{
+    /* display: inline-block;
+    margin-left: 45%; */
+    font-family: Source Sans Pro;
+    width: 50%;
+    margin-top:0.6%
+}
+
+header ul{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 7.5%;
+    font-size: 1.5em;
+}
+
+header li{
+    display: inline;
+    margin-left: 6%;
+    transition: 0.3s ease-in-out;
+}
+
+#main-nav a:hover{
+    color:#F76F2B;
+    transition: 0.3s ease-in-out;
+}
+
+#mobile-nav a:hover{
+    color:#F76F2B;
+    transition: 0.3s ease-in-out;
+}
+
+#mobile-body-cover{
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0,0,0,0.7);
+    display: none;
+}
+
+#hamburger-icon{
+    display: none;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 5%;
+}
+
+#hamburger-icon img{
+    width: 100%;
+}
+
+#mobile-body-cover{
+    display: none;
+}
+
+.close-btn{
+    width: 5%;
+    padding: 10%;
+}
+
+.close-btn img{
+    width:100%;
+    cursor: pointer;
+}
+
+main{
+    padding: 0;
+    margin: 5% 0;
+}
+
+.image-card-div{
+    width:90%;
+    margin: 0 auto;
+}
+
+.img-card{
+    width: 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    margin-right: 3%;
+    height: 15em;
+}
+
+.card1{
+    background-image: url(../images/man-wearing-blue-shirt-looking-on-ball.jpg);
+}
+
+.card2{
+    background-image: url(../images/messi-attack.jpg);
+}
+
+.card3{
+    background-image: url(../images/messi-ramos.jpg);
+}
+
+#card1-overlay, #card2-overlay, #card3-overlay{
+    width:100%;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#card1-overlay:hover, #card2-overlay:hover, #card3-overlay:hover {
+    background-color: rgba(0,0,0,0.8);
+    transition: 0.3s ease-in-out;
+}
+
+#card1-overlay h2, #card2-overlay h2, #card3-overlay h2{
+    font-size: 1.5em;
+    color:transparent;
+    text-align: center;
+    margin:8% auto;
+    transition: 0.3s ease-in-out;
+}
+
+#card1-overlay p, #card2-overlay p, #card3-overlay p{
+    font-size: 1.2em;
+    color: transparent;
+    text-align: center;
+    margin:2% auto;
+    padding:0 8%;
+    transition: 0.3s ease-in-out;
+}
+
+.showText{
+    color:#ffffff !important;
+}
+
+.nextMatch-div {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 90.5%;
+    margin: 5% 0;
+    padding: 3%;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+#nextMatch-info{
+    display: inline-block;
+}
+
+#nextMatch-info .time-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextMatch-div p {
+    font-size:1.2em;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.nextMatch-div p span{
+    font-size: 1.5em;
+    margin-right: 1%;
+    font-weight: bold;
+    color:#007b5e;
+}
+
+.team-icon{
+    width: 10% !important;
+    display: inline-block;
+}
+
+.team-icon img{
+    width:100%;
+}
+
+#liveScores{
+    font-size:2em;
+    font-weight: bold;
+    color:#007b5e;
+    text-align: center;
+    margin:7% 0 5% 0;
+}
+
+#matchTeams{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+#team-left, #team-right{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#team-left p{
+    margin-left: 2%;
+}
+
+#team-right p{
+    margin-right: 2%;
+}
+
+#matchTeams p, #matchTeams span{
+    display: inline-block;
+}
+
+#matchTeams span{
+    margin: 0 2%;
+    font-size:1.6em;
+    font-weight: bold;
+    color:#007b5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#job-form {
+    width: 100%;
+    background-image: url(../images/messi-ramos.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#ffffff;
+}
+
+.job-info {
+    width: 45%;
+    display: inline-block;
+}
+
+.job-info h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    padding-top: 0;
+    margin-top: 0;
+    text-align: center;
+    word-spacing: 0.1em;
+    letter-spacing: 0.1em;
+    color: #F76F2B;
+}
+
+.job-info p{
+    text-align: center;
+    padding:0 5%;
+    margin-top:50%;
+}
+
+#job-form form{
+    width:52%;
+    display: inline-block;
+}
+
+.form-overlay{
+    background-color: rgba(4,9,30,0.9);
+}
+
+form div {
+    margin: 4% 0;
+}
+
+label {
+    width: 18%;
+    display: inline-block;
+}
+
+label span{
+    color:#F76F2B;
+}
+
+form div span{
+    color: #F76F2B;
+    margin-left: 2%;
+}
+
+input {
+    width: 45%;
+    height: 1.5em;
+    padding: 1%;
+}
+
+select {
+    width: 47.7%;
+    height: 2.7em;
+    padding: 1%;
+}
+
+textarea {
+    width: 45.5%;
+    height: 10em;
+    padding: 1%;
+    resize: none;
+}
+
+#btnSubmit, #btnReset {
+    height: 3em;
+    padding: 1%;
+    margin-left: 18.5%;
+    width: 47.8%;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #F76F2B;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+#btnSubmit:hover, #btnReset:hover {
+    color:#F76F2B;
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.info-msg{
+    color: #007b5e;
+    font-size: 2em;
+    text-align: center;
+}
+
+.accordion-content{
+    margin-left: 3000px;
+    height: 0;
+}
+
+.about-img{
+    width:44%;
+    display: inline-block;
+    margin-bottom: 10%;
+}
+
+.about-img img{
+    width:100%;
+}
+
+.about-info1{
+    width:50%;
+    display: inline-block;
+    margin: 0 0 0 5%;
+}
+
+.about-info2{
+    width:50%;
+    display: inline-block;
+    margin: 0 5% 0 0;
+}
+
+.about-info1 h3, .about-info2 h3 {
+    font-size: 2.5em;
+    color: #007b5e;
+    margin-bottom: 8%;
+}
+
+.about-info1 p, .about-info2 p{
+    font-size: 1.5em;
+}
+
+.about-info1 p span, .about-info2 p span{
+    font-size: 0.8em;
+    display: block;
+    margin-top:3%;
+}
+
+.image-slider {
+    width: 80%;
+    margin: 2% auto;
+    position: relative;
+}
+
+.image-slider h3{
+    font-size: 2.5em;
+    color: #007b5e;
+    text-align: center;
+}
+
+.image-slider img {
+    width: 100%;
+    height: 30em;
+    display: none;
+}
+
+.dots{
+    text-align: center;
+    margin: 2% auto;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.score-div{
+    width:90%;
+    background-image: url(../images/messi-attack.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0 auto;
+    font-weight: bold;
+    border-radius: 0.3em;
+}
+
+.score-overlay{
+    width:100%;
+    background:rgba(238, 198, 10, 0.9);
+    padding:8% 0;
+    display: grid;
+    grid-auto-flow: column;
+    border-radius: 0.3em;
+}
+
+.team{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.team .crest{
+    width:30%;
+    display:inline-block;
+}
+
+.team .crest img{
+    width:100%;
+}
+
+.team p{
+    display:inline-block;
+    margin-left: 6%;
+}
+
+.score-info{
+    display:grid;
+    grid-auto-flow: row;
+}
+
+.score-info p{
+    text-align: center;
+}
+
+.score-info .final-score {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5% 10%;
+    border-radius: 0.3em;
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#nM-div{
+    margin-left: 1.7%;
+}
+
+#league-scores{
+    width:90%;
+    margin:0 auto;
+}
+
+#team-scores{
+    width:100%;
+    border-bottom:1px solid #ccc;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    margin-top:5%;
+}
+
+#team-crest-left{
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+    padding-left: 2%;
+    padding-top: 4%;
+    height: 5em;
+}
+
+#team-crest-right{
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    padding-right:2%;
+    height: 5em;
+}
+
+#team-crest-left p{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+    padding: 2%;
+    width:60%;
+}
+
+#team-crest-right p{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    padding: 2%;
+    width:60%;
+}
+
+#crest-img{
+    width:15%;
+    padding: 2%;
+}
+
+#crest-img img{
+    width:100%;
+}
+
+#match-scr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#match-scr p{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2% 8%;
+    border-radius: 0.3em;
+    font-size: 1.5em;
+    width:10%;
+    letter-spacing: 0.2em;
+}
+
+#league-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:2%;
+}
+
+#league-btns a{
+    background-color: #F76F2B;
+    width:20%;
+    padding: 2% 0;
+    margin: 2%;
+    text-align: center;
+    border-radius:0.3em;
+    font-weight: bold;
+    border:1px solid #F76F2B;
+    transition: 0.3s ease-in-out;
+}
+
+#league-btns a:hover{
+    color:#F76F2B;
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+footer{
+    background-color: #04091e;
+}
+
+.footer-top {
+    display: flex;
+}
+
+.quick-links{
+    width:50%;
+    margin-top:2%;
+}
+
+.quick-links ul{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.quick-links li{
+    display: inline;
+    margin-right: 4%;
+}
+
+.quick-links li a{
+    color:#ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.quick-links li a:hover{
+    color:#F76F2B;
+    transition: 0.3s ease-in-out;
+}
+
+.newsletter{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.newsletter p{
+    font-size: 1em;
+    color: #ffffff;
+    display: inline-block;
+    margin-bottom: 2%;
+}
+
+.newsletter input{
+    padding: 2%;
+    margin-left: 2%;
+}
+
+.newsletter a {
+    background-color: #F76F2B;
+    color:#ffffff;
+    font-size: 1em;
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2.4% 0;
+    font-weight: bold;
+    border-bottom:1px solid #F76F2B;
+    transition: 0.3s ease-in-out;
+}
+
+.newsletter a:hover{
+    background-color: #ffffff;
+    color: #F76F2B;
+    border-bottom:1px solid #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.copyright{
+    width:50%;
+}
+
+.copyright p{
+    color: #ffffff;
+    display: inline;
+    font-size: 0.8em;
+}
+
+.footer-bottom{
+    display: flex;
+    margin-top:5%;
+    padding-bottom: 5%;
+}
+
+.media-icons{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width:50%;
+}
+
+.m-icons{
+    width:4.5%;
+    background-color: rgba(255,255,255,0.1);
+    padding: 1%;
+    margin-left: 2%;
+    transition: 0.3s ease-in-out;
+}
+
+.m-icons a img{
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.m-icons:hover{
+    background-color: #F76F2B;
+    transition: 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1024px){
+    #banner-text{
+        font-size:2.3em;
+        margin-top:15%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        display: block;
+    }
+
+    #banner-text span{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header ul {
+        margin-top: 3.5%;
+    }
+
+    .header-logo {
+        font-size: 2em;
+    }
+
+    nav {
+        margin-top: 1%;
+    }
+
+    #mobile-nav{
+        display: none;
+    }
+
+    .m-icons{
+        width:5.5%;
+    }
+
+    #about-divs{
+        display: none;
+    }
+
+    .accordion-content{
+        margin-left: 0px;
+        height: 15em;
+    }
+
+    .nextMatch-div div {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .nextMatch-div p {
+        text-align: center;
+    }
+
+    #matchTeams{
+        display: grid;
+        grid-auto-flow: column;
+    }
+
+    #team-left{
+        display:flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    #team-right{
+        display:flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .team-icon {
+        width: 10% !important;
+        display: inline-block !important;
+        margin: 0 2% 0 0 !IMPORTANT;
+    }
+
+    .img-card {
+        width: 80%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        margin: 0 auto;
+        height: 15em;
+    }
+
+    #card1-overlay h2, #card2-overlay h2, #card3-overlay h2 {
+        font-size: 1.5em;
+        color: transparent;
+        text-align: center;
+        margin: 8% auto;
+        padding-top: 8%;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nextMatch-div{
+        grid-auto-flow: row;
+    }
+
+    #matchTeams{
+        width:80%;
+    }
+
+    #team-left, #team-right{
+        width:100%;
+    }
+
+    .team-icon {
+        width: 20% !important;
+    }
+
+    #crest-img {
+        width: 40%;
+    }
+
+    #match-scr p{
+        width:15%;
+    }
+
+    #team-crest-left p, #team-crest-right p {
+        width: 100%;
+    }
+
+    #league-btns a{
+        width:25%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    #banner-text{
+        font-size:2.3em;
+        margin-top:15%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        display: block;
+        text-align: center;
+    }
+
+    #banner-text span{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gs-div {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #btn-gs {
+        width: 25%;
+        text-align: center;
+        padding:2% 5%;
+    }
+
+    .footer-top {
+        display: block;
+    }
+
+    .quick-links {
+        width: 100%;
+        padding-top: 2%;
+    }
+
+    .quick-links ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .newsletter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-top: 3%;
+    }
+
+    .newsletter input {
+        padding: 1%;
+        margin-left: 2%;
+    }
+
+    .newsletter a {
+        width: 6%;
+        padding: 1.5% 0;
+    }
+
+    #main-nav{
+        display: none;
+    }
+
+    #mobile-nav{
+        display:block;
+        position: fixed;
+        top: 0;
+        padding-top: 18px;
+        bottom: 0;
+        z-index: 998;
+        background: rgba(0,0,0,0.8);
+        left: 770px;
+        right:0px;
+        width: 260px;
+        transition: all 0.6s;
+    }
+
+    #mobile-nav ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    #mobile-nav ul li{
+        position: relative;
+    }
+
+    #mobile-nav ul li a{
+        color: #ffffff;
+        font-size: 13px;
+        text-transform: uppercase;
+        overflow: hidden;
+        padding: 10px 22px 10px 15px;
+        position: relative;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        outline: none;
+        font-weight: 400;
+        transition: 0.3s ease-in-out;
+    }
+    #mobile-nav ul li a:hover{
+        color:#F76F2B;
+        transition: 0.3s ease-in-out;
+    }
+
+    #hamburger-icon{
+        display: flex;
+        cursor: pointer;
+    }
+
+    .header-logo{
+        width:95%;
+    }
+
+    .e-card{
+        width:95%;
+    }
+
+    .card-image{
+        width:30%;
+        margin:5% 35%;
+    }
+
+    .card-image img {
+        height: 10em;
+    }
+
+    .m-icons{
+        width:7.5%;
+    }
+    
+    .image-slider img {
+        height: 20em;
+    }
+
+    .img-card {
+        width: 80%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        margin: 0 auto;
+        height: 15em;
+    }
+
+    #card1-overlay h2, #card2-overlay h2, #card3-overlay h2 {
+        font-size: 1.5em;
+        color: transparent;
+        text-align: center;
+        margin: 8% auto;
+        padding-top: 8%;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nextMatch-div{
+        grid-auto-flow: row;
+    }
+
+    #matchTeams, #team-left, #team-right{
+        width:100%;
+    }
+
+    .team-icon {
+        width: 20% !important;
+    }
+
+    #crest-img {
+        width: 40%;
+    }
+
+    #match-scr p{
+        width:20%;
+    }
+
+    #team-crest-left p, #team-crest-right p {
+        width: 100%;
+    }
+
+    #league-btns a{
+        width:27%;
+    }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Soccer Universe</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Visit Soccer Universe for live soccer scores from around the world.">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="scripts/jquery-3.5.0.min.js"></script>
+        <script src="scripts/jquery-ui.js"></script>
+    </head>
+    <body>
+        <header role="banner">
+            <div id="header-container">
+                <div class="wrapper">
+                    <div class="header-top">
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img src="images/logo3.png" alt="man kicking football logo">
+                                </div>
+                                <span>Soccer Universe</span>
+                            </a>
+                        </div>
+                        <nav role="navigation" id="main-nav">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="matches.html">Matches</a></li>
+                                <li><a href="about.html">About</a></li>
+                            </ul>
+                        </nav>
+                        <div id="hamburger-icon">
+                            <img src="images/Hamburger_icon.png" alt="hamburger menu icon">
+                        </div>
+                    </div>
+                    <h1 id="banner-text">COME FALL IN LOVE WITH THE BEAUTIFUL GAME</h1>
+                </div>
+            </div>
+        </header>
+        <nav role="navigation" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-body-cover">
+            <div class="close-btn"><img src="images/close.png" alt="close button" id="close"></div>
+        </div>
+        <main role="main">
+            <div class="wrapper">
+                <div class="image-cards-div">
+                    <div id="iCard1" class="img-card card1">
+                        <div id="card1-overlay" class="img-card">
+                            <h2 id="h2-c1">The Local Game</h2>
+                            <p id="p-c1">Really it's the quality of football that it all comes down to, at a very high
+                                tempo pace. The type of artistry that you just don't see anywhere else in the world.</p>
+                        </div>
+                    </div>
+                    <div id="iCard2" class="img-card card2">
+                        <div id="card2-overlay" class="img-card">
+                            <h2 id="h2-c2">El Classico</h2>
+                            <p id="p-c2">Really it's the quality of football that it all comes down to, at a very high
+                                tempo pace. The type of artistry that you just don't see anywhere else in the world.</p>
+                        </div>
+                    </div>
+                    <div id="iCard3" class="img-card card3">
+                        <div id="card3-overlay" class="img-card">
+                            <h2 id="h2-c3">El Classico</h2>
+                            <p id="p-c3">Really it's the quality of football that it all comes down to, at a very high
+                                tempo pace. The type of artistry that you just don't see anywhere else in the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nextMatch-div">
+                    <div id="nextMatch-info">
+                        <p>Next Match</p>
+                        <p class="time-left"><span id="nmWeeks"></span>weeks<span id="nmDays"></span>days<span id="nmHrs"></span>hours
+                            <span id="nmMins"></span>minutes<span id="nmSec"></span>seconds</p>
+                    </div>
+                    <div id="matchTeams">
+                        <div id="team-left">
+                            <div class="team-icon">
+                                <img src="images/barcelona.png" alt="barcelona football club crest">
+                            </div>
+                            <p>FC BARCELONA</p>
+                        </div>
+                        <span>VS</span>
+                        <div id="team-right">
+                            <p>REAL MADRID CF</p>
+                            <div class="team-icon">
+                                <img src="images/realmadrid.png"alt="real madrid football club crest">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="job-form">
+                <div class="form-overlay">
+                    <div class="job-info">
+                        <h2>We are Hiring!<span></span></h2>
+                        <p>In search of enthusiastic lads who religiously follow every game. You can work from office 
+                            or remote location.</p>
+                    </div>
+                    <form action="info.html" method="POST">
+                        <div>
+                            <label for="txtName">Name<span>*</span></label>
+                            <input type="text" id="txtName" maxlength="30"><span></span>
+                        </div>
+                        <div>
+                            <label for="txtEmail">Email<span>*</span></label>
+                            <input type="email" id="txtEmail" maxlength="30"><span></span>
+                        </div>
+                        <div>
+                            <label for="txtPhn">Phone</label>
+                            <input type="tel" id="txtPhn" placeholder="999-999-9999" maxlength="12"><span></span>
+                        </div>
+                        <div>
+                            <label for="selJobLoc">Job Location</label>
+                            <select id="selJobLoc">
+                                <option value="office" selected>Office</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="txtComments">Comments<span>*</span></label>
+                            <textarea id="txtComments" maxlength="400" placeholder="Enter your profile highlights"></textarea>
+                            <span></span>
+                        </div>
+                        <div>
+                            <input type="submit" id="btnSubmit" value="Send">
+                        </div>
+                        <div>
+                            <input type="reset" id="btnReset" value="Reset">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer role="contentinfo">
+            <div class="wrapper">
+                <div class="footer-top">
+                    <div class="quick-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="matches.html">Matches</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="newsletter">
+                        <p>Newsletter</p>
+                        <input type="email" placeholder="Enter email address"><a href="#">></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>Copyright ©2020 RajatMahajan</p>
+                    </div>
+                    <div class="media-icons">
+                        <div class="m-icons">
+                            <a href="https://www.facebook.com/" class="fb-icon" target="_blank">
+                                <img src="images/fb-icon.png" alt="facebook icon">
+                            </a>
+                        </div>
+                        <div class="m-icons">
+                            <a href="https://twitter.com/" class="twitter-icon" target="_blank">
+                                <img src="images/twitter-icon.png" alt="twitter icon">
+                            </a>
+                        </div>
+                        <div class="m-icons">
+                            <a href="https://www.instagram.com/" class="insta-icon" target="_blank">
+                                <img src="images/insta-icon.png" alt="instagram icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

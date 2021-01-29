@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Soccer Universe :: Matches</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Get information about match days, team lineups, live scores and much more.">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="scripts/jquery-3.5.0.min.js"></script>
+        <script src="scripts/jquery-ui.js"></script>
+    </head>
+    <body>
+        <header role="banner">
+            <div id="header-container">
+                <div class="wrapper">
+                    <div class="header-top">
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img src="images/logo3.png" alt="man kicking football logo">
+                                </div>
+                                <span>Soccer Universe</span>
+                            </a>
+                        </div>
+                        <nav role="navigation" id="main-nav">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="matches.html">Matches</a></li>
+                                <li><a href="about.html">About</a></li>
+                            </ul>
+                        </nav>
+                        <div id="hamburger-icon">
+                            <img src="images/Hamburger_icon.png" alt="hamburger menu icon">
+                        </div>
+                    </div>
+                    <h1 id="banner-text">COME FALL IN LOVE WITH THE BEAUTIFUL GAME</h1>
+                </div>
+            </div>
+        </header>
+        <nav role="navigation" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-body-cover">
+            <div class="close-btn"><img src="images/close.png" alt="close button" id="close"></div>
+        </div>
+        <main role="main">
+            <div class="wrapper">
+                <div class="score-div">
+                    <div class="score-overlay">
+                        <div class="team">
+                            <div class="crest">
+                                <img src="images/chelsea.png" alt="Chelsea crest">
+                            </div>
+                            <p>Chelsea FC</p>
+                        </div>
+                        <div class="score-info">
+                            <p>Premier League - Round 10</p>
+                            <p class="final-score">3:2</p>
+                            <p>10 April / 7:30 AM</p>
+                        </div>
+                        <div class="team">
+                            <p>Liverpool FC</p>
+                            <div class="crest">
+                                <img src="images/liverpool.png" alt="Liverpool crest">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="nM-div" class="nextMatch-div">
+                    <div id="nextMatch-info">
+                        <p>Next Match</p>
+                        <p class="time-left"><span id="nmWeeks"></span>weeks<span id="nmDays"></span>days<span id="nmHrs"></span>hours
+                            <span id="nmMins"></span>minutes<span id="nmSec"></span>seconds</p>
+                    </div>
+                    <div id="matchTeams">
+                        <div id="team-left">
+                            <div class="team-icon">
+                                <img src="images/barcelona.png" alt="barcelona football club crest">
+                            </div>
+                            <p>FC BARCELONA</p>
+                        </div>
+                        <span>VS</span>
+                        <div id="team-right">
+                            <p>REAL MADRID CF</p>
+                            <div class="team-icon">
+                                <img src="images/realmadrid.png"alt="real madrid football club crest">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 id="liveScores">Live Scores</h2>
+                <div id="league-scores" class="epl-show">
+                    <div id="team-scores">
+                        <div id="team-crest-left">
+                            <div id="crest-img">
+                                <img src="images/chelsea.png" alt="chelsea football club crest">
+                            </div>
+                            <p>Chelsea FC</p>
+                        </div>
+                        <div id="match-scr">
+                            <p>3:2</p>
+                        </div>
+                        <div id="team-crest-right">
+                            <p>Liverpool FC</p>
+                            <div id="crest-img">
+                                <img src="images/liverpool.png" alt="liverpool football club crest">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="team-scores">
+                        <div id="team-crest-left">
+                            <div id="crest-img">
+                                <img src="images/MU.png" alt="manchester united football club crest">
+                            </div>
+                            <p>Manchester United FC</p>
+                        </div>
+                        <div id="match-scr">
+                            <p>2:2</p>
+                        </div>
+                        <div id="team-crest-right">
+                            <p>Manchester City FC</p>
+                            <div id="crest-img">
+                                <img src="images/MC.png" alt="manchester city football club crest">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="team-scores">
+                        <div id="team-crest-left">
+                            <div id="crest-img">
+                                <img src="images/arsenal.png" alt="arsenal football club crest">
+                            </div>
+                            <p>Arsenal FC</p>
+                        </div>
+                        <div id="match-scr">
+                            <p>2:1</p>
+                        </div>
+                        <div id="team-crest-right">
+                            <p>Tottenham FC</p>
+                            <div id="crest-img">
+                                <img src="images/tottenham.png" alt="tottenham football club crest">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="team-scores">
+                        <div id="team-crest-left">
+                            <div id="crest-img">
+                                <img src="images/leicester.png" alt="leicester city football club crest">
+                            </div>
+                            <p>Leicester City FC</p>
+                        </div>
+                        <div id="match-scr">
+                            <p>1:2</p>
+                        </div>
+                        <div id="team-crest-right">
+                            <p>Swansea FC</p>
+                            <div id="crest-img">
+                                <img src="images/swansea.png" alt="swansea football club crest">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="league-btns">
+                    <a href="#liveScores" title="epl">English Premier League</a>
+                    <a href="#liveScores" title="spl">La Liga</a>
+                    <a href="#liveScores" title="ipl">Serie A</a>
+                </div>
+            </div>
+        </main>
+        <footer role="contentinfo">
+            <div class="wrapper">
+                <div class="footer-top">
+                    <div class="quick-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="matches.html">Matches</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="newsletter">
+                        <p>Newsletter</p>
+                        <input type="email" placeholder="Enter email address"><a href="#">></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>Copyright ©2020 RajatMahajan</p>
+                    </div>
+                    <div class="media-icons">
+                        <div class="m-icons">
+                            <a href="https://www.facebook.com/" class="fb-icon" target="_blank">
+                                <img src="images/fb-icon.png" alt="facebook icon">
+                            </a>
+                        </div>
+                        <div class="m-icons">
+                            <a href="https://twitter.com/" class="twitter-icon" target="_blank">
+                                <img src="images/twitter-icon.png" alt="twitter icon">
+                            </a>
+                        </div>
+                        <div class="m-icons">
+                            <a href="https://www.instagram.com/" class="insta-icon" target="_blank">
+                                <img src="images/insta-icon.png" alt="instagram icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
