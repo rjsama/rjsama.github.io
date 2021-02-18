@@ -783,6 +783,13 @@ footer{
     transition: 0.3s ease-in-out;
 }
 
+.youtube-vid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
 @media only screen and (max-width: 1024px){
     #banner-text{
         font-size:2.3em;
