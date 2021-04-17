@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>OrganizeMe</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Created By Rajat Mahajan -->
+    </head>
+    <body>
+        <header>
+            <h1>OrganizeMe</h1>
+        </header>
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li id="dashboard"><a>DashBoard</a></li>
+                    <li id="addEvent"><a>Add Event</a></li>
+                    <li id="note"><a>Add Note</a></li>
+                    <li id="contact"><a>Add Contact</a></li>                   
+                </ul>
+            </nav>
+            <main>
+                <div id="dbSection">
+                    <div id="db_events">
+                        <h2>Events</h2>
+                        <div id="priority-section">
+                            Priority: <div class="medium"></div>Medium
+                            <div class="high"></div>High
+                            <div class="critical"></div>Critical
+                        </div>
+                        <div id="eventsDiv"></div>
+                        <div id="delEventsDiv" class="deleteCard">
+                            <label for="selEvents">Delete Event:</label>
+                            <select id="selEvents">
+                            </select>
+                            <button id="delEvent">Go</button>
+                        </div>
+                    </div>
+                    <div id="db_notes">
+                        <h2>Notes</h2>
+                        <div id="notesDiv"></div>
+                        <div id="delNotesDiv" class="deleteCard">
+                            <label for="selNotes">Delete Note:</label>
+                            <select id="selNotes">
+                            </select>
+                            <button id="delNote">Go</button>
+                        </div>
+                    </div>
+                    <div id="db_contacts">
+                        <h2>Contacts</h2>
+                        <div id="contactsDiv"></div>
+                        <div id="delContactsDiv" class="deleteCard">
+                            <label for="selContacts">Delete Contact:</label>
+                            <select id="selContacts">
+                            </select>
+                            <button id="delContact">Go</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="eventSection">
+                    <h2>Event</h2>
+                    <div id="eventForm" class="myForm">
+                        <p class="errMsg">Please fill the asterisk(*) marked fields.</p>
+                        <div>
+                            <label for="txtEN">Title<span class="impField">*</span>:</label>
+                            <input type="text" id="txtEN" maxlength="25" required>
+                        </div>
+                        <div>
+                            <label for="txtDate">Date<span class="impField">*</span>:</label>
+                            <input type="date" id="txtDate" required>
+                        </div>
+                        <div>
+                            <label for="txtTime">Time:</label>
+                            <input type="time" id="txtTime">
+                        </div>
+                        <div>
+                            <label for="selPriority">Priority:</label>
+                            <select id="selPriority">
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="txtDesc">Description<span class="impField">*</span>:</label>
+                            <textarea id="txtDesc" maxlength="200" required></textarea>
+                        </div>
+                        <div>
+                            <button id="btnCreateEvent">Create</button>
+                            <button id="btnEReset" class="btns">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="noteSection">
+                    <h2>Note</h2>
+                    <div id="noteForm" class="myForm">
+                        <p class="errMsg">Please fill the asterisk(*) marked fields.</p>
+                        <div>
+                            <label for="txtNote">Title<span class="impField">*</span>:</label>
+                            <input type="text" id="txtNote" maxlength="25" required>
+                        </div>
+                        <div>
+                            <label for="txtNoteDesc">Description<span class="impField">*</span>:</label>
+                            <textarea id="txtNoteDesc"  maxlength="200" required></textarea>
+                        </div>
+                        <div>
+                            <button id="btnCreateNote">Create</button>
+                            <button id="btnNReset" class="btns">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="contactSection">
+                    <h2>Contact</h2>
+                    <div id="contactForm" class="myForm">
+                        <p class="errMsg">Please fill the asterisk(*) marked fields.</p>
+                        <div>
+                            <label for="txtName">Name<span class="impField">*</span>:</label>
+                            <input type="text" id="txtName" maxlength="25" required>
+                        </div>
+                        <div>
+                            <label for="txtPhone">Phone<span class="impField">*</span>:</label>
+                            <input type="tel" id="txtPhone" maxlength="10" required>
+                        </div>
+                        <div>
+                            <label for="txtCEmail">Email:</label>
+                            <input type="email" id="txtCEmail">
+                        </div>
+                        <div>
+                            <label for="txtOrg">Organisation:</label>
+                            <input type="text" id="txtOrg" maxlength="40" required>
+                        </div>
+                        <div>
+                            <button id="btnCreateContact">Create</button>
+                            <button id="btnCReset" class="btns">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer>Copyright©2020_RajatMahajan</footer>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

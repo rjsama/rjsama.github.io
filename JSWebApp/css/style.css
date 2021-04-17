@@ -1,0 +1,309 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: url(../images/silhouette-of-grass-under-white-sky-925743.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 143%;
+}
+
+.wrapper{
+    width: 90%;
+    margin: auto;
+    min-height: 470px;
+}
+
+header{
+    width: 100%;
+    font-family: Playfair display;
+    background-color: #1f62ff;
+    margin : 0;
+    color: #ffffff;
+}
+
+h1{
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0 5%;
+    padding: 1% 0;
+    display: inline-block;
+}
+
+h3{
+    font-size: 1em;
+    display: inline-block;
+    margin-left: 57%;
+}
+
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main{
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+h2{
+    text-align: center;
+    font-size: 2em;
+    color: #223374;
+}
+
+.myForm{
+    font-family: Source Sans Pro;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.myForm div {
+    margin-bottom: 2%;
+}
+
+.myForm label {
+    display: inline-block;
+    width: 18%;
+    font-size: 1.5em;
+    color: #223374;
+}
+
+#txtFN, #txtLN, #txtEmail, #txtPhn, #txtUN, #txtPswd, #txtEN, #txtDate, #txtTime, #txtName, #txtPhone, #txtNote, #txtCEmail, #txtOrg {
+    width: 30%;
+    height: 1.5em;
+}
+
+#eventForm, #noteForm,#contactForm{
+    margin-top: 3%;
+}
+
+#txtDate, #txtTime{
+    height: 1.7em;
+}
+
+#selPriority{
+    width: 30.7%;
+    height: 2.1em;
+}
+
+#txtDesc, #txtNoteDesc{
+    width: 30%;
+    height: 10em;
+    resize: none;
+}
+
+.myForm #btnReg, .myForm #btnLogin, .myForm #btnCreateEvent, .myForm #btnCreateNote, .myForm #btnCreateContact {
+    width: 15.2%;
+    margin-left: 18.2%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.myForm .btns {
+    width: 15.2%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+nav{
+    display: block;
+    font-family: Source Sans Pro;
+    margin: 4% 0 0 6%;
+}
+
+nav ul li{
+    display: inline-block;
+    background-color: #0022a1;
+    cursor: pointer;
+    padding: 1.5% 6%;
+    margin-left: 1%;
+    border-radius: 20% 15%;
+}
+
+nav ul li:hover{
+    background-color: #001561;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+#dbSection{
+    display: block;
+}
+
+#eventSection{
+    display: none;
+}
+
+#noteSection{
+    display: none;
+}
+
+#contactSection{
+    display: none;
+}
+
+#priority-section{
+    font-size: 1.2em;
+    margin-bottom: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#priority-section .medium{
+    background-color: #a358df;
+}
+
+#priority-section .high{
+    background-color: #FDAB3D;
+}
+
+#priority-section .critical{
+    background-color: #e44258;
+}
+
+#priority-section div {
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+    margin: 0 0.3% 0 1%;
+}
+
+.eventCard {
+    width: 25%;
+    height: 15em;
+    box-shadow: 0px 1px 10px 2px #ccc;
+    display: inline-block;
+    margin-left: 6%;
+    margin-bottom: 3%;
+}
+
+.noteCard {
+    width: 25%;
+    height: 13em;
+    box-shadow: 0px 1px 10px 2px #ccc;
+    display: inline-block;
+    margin-left: 6%;
+    margin-bottom: 3%;
+}
+
+.contactCard{
+    width: 25%;
+    height: 13em;
+    box-shadow: 0px 1px 10px 2px #ccc;
+    display: inline-block;
+    margin-left: 6%;
+    margin-bottom: 3%;
+}
+
+.eventCard h4 {
+    font-size: 1.7em;
+    padding: 1%;
+    margin: 0;
+    text-align: center;
+}
+
+.eventCard .medium{
+    background-color: #a358df;
+}
+
+.eventCard .high{
+    background-color: #FDAB3D;
+}
+
+.eventCard .critical{
+    background-color: #e44258;
+}
+
+.noteCard h4{
+    font-size: 1.7em;
+    padding: 1%;
+    margin: 0;
+    text-align: center;
+    background-color: #FAFE6E;
+}
+
+.contactCard h4{
+    font-size: 1.7em;
+    padding: 1%;
+    margin: 0;
+    text-align: center;
+    background-color: #C6C7AE;
+}
+
+.eventCard p, .noteCard p, .contactCard p {
+    text-align: center;
+}
+
+#btnEDel, #btnNDel, #btnCDel {
+    width: 40%;
+    padding: 3% 2%;
+    margin-left: 30%;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.deleteCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Source Sans Pro;
+    font-size: 1.2em;
+    margin: 3% 0;
+}
+
+.deleteCard select {
+    font-family: Source Sans Pro;
+    font-size: 0.9em;
+    width: 15%;
+    margin: 0 1%;
+}
+
+.deleteCard button {
+    font-family: Source Sans Pro;
+    width: 5%;
+    height: 1.7em;
+    cursor: pointer;
+}
+
+#delEventsDiv, #delContactsDiv, #delNotesDiv{
+    display: none;
+}
+
+.impField{
+    color: red;
+}
+
+.errMsg {
+    display: none;
+    color: red;
+    width: 100%;
+    font-size: 1.3em;
+    margin-bottom: 2%;
+}
+
+.loginErrMsg{
+    display: none;
+    color: red;
+    width: 100%;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.infoMsg {
+    width: 100%;
+    font-size: 1.3em;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+footer{
+    font-family: Source Sans Pro;
+    font-size: 0.8em;
+    color: #ffffff;
+    padding: 0.7% 5%;
+    margin: 0;
+}
