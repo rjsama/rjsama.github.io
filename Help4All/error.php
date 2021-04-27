@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> Help4All :: About Us </title>
+        <title> Help4All :: Error </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
@@ -18,16 +18,33 @@
         <header id = "header" class = "fixed-top header-transparent">
             <div class = "container d-flex align-items-center">
                 <div class = "logo mr-auto">
-                    <h1 class = "text-light"><a href = "index.html"> <span> Help4All </span> </a> </h1>
+                    <h1 class = "text-light"><a href = "index.php"> <span> Help4All </span> </a> </h1>
                 </div>
                 <nav class = "nav-menu d-none d-lg-block">
                     <ul>
-                        <li> <span><a href = "index.html">Home </a></span></li>
-                        <li> <a href = "aboutus.html"> About Us </a> </li>
-                        <li> <a href = "guides.html"> Guides </a> </li>
+                        <li> <span><a href = "index.php">Home </a></span></li>
+                        <li> <a href = "aboutus.php"> About Us </a> </li>
+                        <li> <a href = "guides.php"> Guides </a> </li>
                         <li> <a href = "services.php"> Services </a> </li>
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
+                    </nav>
+                    <?php
+                    session_start();
+                    $loginDisp = "flex";
+                    $nameDisp = "none";
+                    if(isset($_SESSION['userId'])){
+                        $loginDisp = "none";
+                        $nameDisp = "flex";
+                    }
+                    ?>
+                    <span style="margin-left:2%;margin-right:2%;">
+                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
+                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
+                    </span>
+                    <span>
+                        <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
+                    </span>
             </div>
         </header> 
         <!-- Banner Image-->
@@ -37,78 +54,13 @@
                 <h2> We are here to help international immigrants </h2>
             </div>
         </section> <!-- End Banner-->
-        
-        <!--About-->
-        <section id = "aboutus" class="aboutus">
-            <div class="container">
+
+        <section id = "contactform" class = "contactform">
+            <div class = "container">
                 <div class = "section-title">
-                    <h2> About Us </h2>
+                <h3>Error</h3>
+                <p style="text-align: center; color: red; font-size: 1.5em;">Sorry! We are unable to process your request. Please try again later.</p>
                 </div>
-                <p> We are dedicated to help international students and other immigrants who arrive in Ontario, Canada every year for higher studies and work. Through this website they will be able to avail essential services and information from the comfort of their home so that their journey in Canada can begin smoothly. </p>
-                <p><strong>Purpose:</strong></p>
-                <ul>
-                    <li>Provide assistance mainly to international students and other immigrants in general matters of interest</li>
-                    <li>Provide necessary information and services</li>
-                    <li>Provide viable help in a feasible and efficient manner</li>
-                    <li>Provide assistance to immigrants who are facing problems due to the COVID-19 pandemic</li>
-                </ul>
-                <p><strong>Services:</strong></p>
-                <ul>
-                    <li>Booking airport pickup/drop on arrival/departure respectively to various locations across Ontario, Canada.</li>
-                    <li>Assistance for temporary and permanent housing needs</li>
-                    <li>Assistance for availing tiffin services</li>
-                    <li>Assistance for job search</li>
-                    <li>Assistance for availing training for Drivers Licence test</li>
-                    <li>Assistance for booking flight tickets</li>
-                    <li>and much more...</li>
-                </ul>
-                <p><strong>Guides:</strong></p>
-                <ul>
-                    <li>How to get Canadian SIM card and mobile phone as per requirement</li>
-                    <li>How to apply for Social Insurance Number(SIN)</li>
-                    <li>How to apply for Driving Licence</li>
-                    <li>How to apply for various licences required for in demand jobs like forklift operator and security guard</li>
-                    <li>Where to buy essential items of daily use like food (both local and native), clothing, footwear and stationery</li>
-                    <li>How to apply for work permit or extend study permit</li>
-                    <li>How to apply for income tax</li>
-                    <li>and much more...</li>
-                </ul>
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>For new arrivals:
-                        <ul>
-                            <li>One stop for all necessary services and information in order to get a smooth start to life in Ontario, Canada</li>
-                            <li>Avoid being misguided on important matters by getting assistance from experienced professionals</li>
-                            <li>Avoid being misguided on important matters by getting assistance from experienced professionals</li>
-                        </ul>
-                    </li>
-                    <li>For the ones already living in Canada:
-                        <ul>
-                            <li>Get assistance in extending study and work permits</li>
-                            <li>Get assistance in booking flight tickets without the risk of getting scammed</li>
-                            <li>Get assistance for Job search and related matters</li>
-                        </ul>
-                    </li>
-                    <li>For the ones suffering due to COVID-19:
-                        <ul>
-                            <li>Get assistance for job search and related matters in case of having being laid off</li>
-                            <li>Get information on relief provided by the government</li>
-                        </ul>
-                    </li>
-                    <li>For the government:
-                        <ul>
-                            <li>Information will reach further and penetrate more deeply into the masses</li>
-                            <li>Will help build an even better image of the government among immigrants if they get to know about various government policies</li>
-                        </ul>
-                    </li>
-                    <li>For the society:
-                        <ul>
-                            <li>Immigrants will be able to settle better in the society without much hassle to self or others</li>
-                            <li>People will get livelihood opportunities as we act as a bridge between the service providers and service seekers</li>
-                            <li>Help strengthen the bond in the community by providing ways and means to build better understanding among immigrants and residents</li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
         </section>
 
@@ -180,9 +132,9 @@
           <div class="col-lg-2 col-md-6 footer-links" >
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="aboutus.html">About Us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="guides.html">Guides</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="aboutus.php">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="guides.php">Guides</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.php">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="contactus.php">Contact Us</a></li>
             </ul>
@@ -192,7 +144,7 @@
             <h4>Our Services</h4>
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="transport.php">Transportation</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Housing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="housing.php">Housing</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Tiffin Service</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Jobs</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Driving Instructor</a></li>
@@ -216,7 +168,6 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-      
     </body>
 
 </html>

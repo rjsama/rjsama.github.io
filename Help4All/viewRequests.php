@@ -1,16 +1,17 @@
 <html>
     <head>
-        <title> Help4All :: Services </title>
+        <title> Help4All :: View Requests </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
         <link href="assets/img/favicon.png" rel="icon">
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
     </head>
     
     <body>
@@ -28,18 +29,8 @@
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
                     </nav>
-                    <?php
-                    session_start();
-                    $loginDisp = "flex";
-                    $nameDisp = "none";
-                    if(isset($_SESSION['userId'])){
-                        $loginDisp = "none";
-                        $nameDisp = "flex";
-                    }
-                    ?>
                     <span style="margin-left:2%;margin-right:2%;">
-                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
-                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
+                        <a id="nameLink" href="account.php" style="color:#ffffff;">Welcome, <?php session_start(); echo $_SESSION['name'] ?></a>
                     </span>
                     <span>
                         <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
@@ -55,49 +46,20 @@
             </div>
         </section> <!-- End Banner-->
 
-        <!--Services-->
+        <!--Guides-->
 
-        <section id = "service-section" class = "services">
+        <section id = "contactform" class = "contactform">
             <div class = "container">
                 <div class = "section-title">
-                    <h2> Services </h2>
-                    <p>Explore our services</p>
-                </div>
-                <div style="display:<?php echo$loginDisp ?>">
-                    <p style="width:100%;text-align:center">Please <a href="login.php" style="font-weight:bold">Login/Signup</a> to access our Services.</p>
-                </div>
-                <div class="service-icons" style="display:<?php echo $nameDisp ?>">
-                    <div class="service-icon-div">
-                        <a id="transport" href="transport.php"><img src="assets/img/car_black_48dp.png" alt="black car icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="housing" href="housing.php"><img src="assets/img/house_black_48dp.png" alt="black house icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="tiffin" href="tiffin.php"><img src="assets/img/restaurant_black_48dp.png" alt="black spoon fork icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="jobs" href="jobs.php"><img src="assets/img/work_black_48dp.png" alt="black briefcase icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="driving" href="driving.php"><img src="assets/img/driving_black_48dp.png" alt="black car icon"></a>
-                    </div>
+                <h2>User Requests</h2>
                 </div>
 
-                <div class="icon-titles" style="display:<?php echo $nameDisp ?>">
-                    <p>Transportation</p>
-                    <p>Housing</p>
-                    <p>Tiffin Service</p>
-                    <p>Jobs</p>
-                    <p>Driving Instructor</p>
+                <div id="contact-form-div">
+                    
+                    
                 </div>
-                <div style="padding-top:20px">
-                    <p style="text-align: center;">If you have any queries, you may <strong><a href="contactus.php">Contact Us</a></strong></p>
-                </div>
+                <input type="hidden" id="tcountOld" value="0">
+                <input type="hidden" id="hcountOld" value="0">
             </div>
         </section>
 
@@ -203,10 +165,39 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src=
+	"https://smtpjs.com/v3/smtp.js">
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
         <script>
-            document.getElementById('service-section').scrollIntoView();
+            var tcount = 0;
+            var hcount = 0;
+
+            function getmessage() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("contact-form-div").innerHTML = this.responseText;
+
+                    console.log(document.getElementById("tcountOld").value);
+                    console.log(document.getElementById("hcountOld").value);
+                    
+                    if((document.getElementById("tcountOld").value != document.getElementById("trequestCount").value || document.getElementById("hcountOld").value != document.getElementById("hrequestCount").value)){
+                        
+                    }
+
+                    document.getElementById("tcountOld").value = document.getElementById("trequestCount").value;
+                    document.getElementById("hcountOld").value = document.getElementById("hrequestCount").value;
+
+                    console.log(tcount);
+                    console.log(hcount);
+                }
+                };
+                xmlhttp.open("GET", "viewTHReq.php", true);
+                xmlhttp.send();
+            }
+
+            setInterval(getmessage, 1000);
         </script>
     </body>
 

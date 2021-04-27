@@ -10,14 +10,19 @@ define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'help4all');
 
+// // Make the connection:
+// $mysqli = new MySqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+// //errors in PHP OOPS
+// if($mysqli->connect_error){
+//     echo $mysqli->connect_error;
+//     unset($mysqli);
+// } else {
+//     $mysqli->set_charset('utf8'); // Set the encoding...
+// }
+
 // Make the connection:
-$mysqli = new MySqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Could not connect to MySQL: ' . mysqli_connect_error() );
 
-//errors in PHP OOPS
-if($mysqli->connect_error){
-    echo $mysqli->connect_error;
-    unset($mysqli);
-} else {
-    $mysqli->set_charset('utf8'); // Set the encoding...
-}
-
+// Set the encoding...
+mysqli_set_charset($dbc, 'utf8');

@@ -566,7 +566,7 @@ section{
 }
 
 /* Guides */
-#guides, #contactform, #aboutus, #services{
+#guides, #contactform, #aboutus, #services, #service-section{
     margin-top: 60px;
 }
 
@@ -650,6 +650,27 @@ section{
         align-items: center;
         width: 20%;
         height: auto;
+    }
+
+    #loginLink, #nameLink, #logoutLink{
+        text-decoration: none !important;
+        color:#ffffff;
+        transition: 0.3s;
+    }
+
+    #loginLink:hover{
+        text-decoration: underline !important;
+        transition: 0.3s;
+    }
+
+    #nameLink:hover{
+        text-decoration: underline !important;
+        transition: 0.3s;
+    }
+
+    #logoutLink:hover{
+        text-decoration: underline !important;
+        transition: 0.3s;
     }
 
 /*--------------------------------------------------------------

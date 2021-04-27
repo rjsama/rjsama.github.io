@@ -1,16 +1,17 @@
 <html>
     <head>
-        <title> Help4All :: Services </title>
+        <title> Help4All :: Success </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
         <link href="assets/img/favicon.png" rel="icon">
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
     </head>
     
     <body>
@@ -27,23 +28,23 @@
                         <li> <a href = "services.php"> Services </a> </li>
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
-                    </nav>
-                    <?php
-                    session_start();
-                    $loginDisp = "flex";
-                    $nameDisp = "none";
-                    if(isset($_SESSION['userId'])){
-                        $loginDisp = "none";
-                        $nameDisp = "flex";
-                    }
-                    ?>
-                    <span style="margin-left:2%;margin-right:2%;">
-                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
-                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
-                    </span>
-                    <span>
-                        <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
-                    </span>
+                  </nav>
+                  <?php
+                  session_start();
+                  $loginDisp = "flex";
+                  $nameDisp = "none";
+                  if(isset($_SESSION['userId'])){
+                      $loginDisp = "none";
+                      $nameDisp = "flex";
+                  }
+                  ?>
+                  <span style="margin-left:2%;margin-right:2%;">
+                      <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
+                      <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
+                  </span>
+                  <span>
+                      <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
+                  </span>
             </div>
         </header> 
         <!-- Banner Image-->
@@ -55,48 +56,11 @@
             </div>
         </section> <!-- End Banner-->
 
-        <!--Services-->
-
-        <section id = "service-section" class = "services">
+        <section id = "contactform" class = "contactform">
             <div class = "container">
                 <div class = "section-title">
-                    <h2> Services </h2>
-                    <p>Explore our services</p>
-                </div>
-                <div style="display:<?php echo$loginDisp ?>">
-                    <p style="width:100%;text-align:center">Please <a href="login.php" style="font-weight:bold">Login/Signup</a> to access our Services.</p>
-                </div>
-                <div class="service-icons" style="display:<?php echo $nameDisp ?>">
-                    <div class="service-icon-div">
-                        <a id="transport" href="transport.php"><img src="assets/img/car_black_48dp.png" alt="black car icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="housing" href="housing.php"><img src="assets/img/house_black_48dp.png" alt="black house icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="tiffin" href="tiffin.php"><img src="assets/img/restaurant_black_48dp.png" alt="black spoon fork icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="jobs" href="jobs.php"><img src="assets/img/work_black_48dp.png" alt="black briefcase icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="driving" href="driving.php"><img src="assets/img/driving_black_48dp.png" alt="black car icon"></a>
-                    </div>
-                </div>
-
-                <div class="icon-titles" style="display:<?php echo $nameDisp ?>">
-                    <p>Transportation</p>
-                    <p>Housing</p>
-                    <p>Tiffin Service</p>
-                    <p>Jobs</p>
-                    <p>Driving Instructor</p>
-                </div>
-                <div style="padding-top:20px">
-                    <p style="text-align: center;">If you have any queries, you may <strong><a href="contactus.php">Contact Us</a></strong></p>
+                <h3>Thank you for contacting us</h3>
+                <p style="text-align: center; color: green; font-size: 1.5em;">Successfully registered your request. We will get back to you at the earliest.</p>
                 </div>
             </div>
         </section>
@@ -205,9 +169,6 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-        <script>
-            document.getElementById('service-section').scrollIntoView();
-        </script>
     </body>
 
 </html>

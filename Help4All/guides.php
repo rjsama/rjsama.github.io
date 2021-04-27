@@ -46,16 +46,33 @@
         <header id = "header" class = "fixed-top header-transparent">
             <div class = "container d-flex align-items-center">
                 <div class = "logo mr-auto">
-                    <h1 class = "text-light"><a href = "index.html"> <span> Help4All </span> </a> </h1>
+                    <h1 class = "text-light"><a href = "index.php"> <span> Help4All </span> </a> </h1>
                 </div>
                 <nav class = "nav-menu d-none d-lg-block">
                     <ul>
-                        <li> <span><a href = "index.html">Home </a></span></li>
-                        <li> <a href = "aboutus.html"> About Us </a> </li>
-                        <li> <a href = "guides.html"> Guides </a> </li>
+                        <li> <span><a href = "index.php">Home </a></span></li>
+                        <li> <a href = "aboutus.php"> About Us </a> </li>
+                        <li> <a href = "guides.php"> Guides </a> </li>
                         <li> <a href = "services.php"> Services </a> </li>
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
+                    </nav>
+                    <?php
+                    session_start();
+                    $loginDisp = "flex";
+                    $nameDisp = "none";
+                    if(isset($_SESSION['userId'])){
+                        $loginDisp = "none";
+                        $nameDisp = "flex";
+                    }
+                    ?>
+                    <span style="margin-left:2%;margin-right:2%;">
+                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
+                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
+                    </span>
+                    <span>
+                        <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
+                    </span>
             </div>
         </header> 
         <!-- Banner Image-->
@@ -63,6 +80,7 @@
             <div class="banner-container">
                 <h1> Welcome to Help4All Immigration </h1>
                 <h2> We are here to help international immigrants </h2>
+                <span style="display: inline-block; background: #000000; padding: 6px 20px 8px 20px; color: #FFFFFF; border-radius: 50px; position: relative;"><a href="services.php" class="about-btn">Our Services <i class = "bx bx-chevron-right"></i></a></span>
             </div>
         </section> <!-- End Banner-->
 
@@ -279,9 +297,9 @@
           <div class="col-lg-2 col-md-6 footer-links" >
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="aboutus.html">About Us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="guides.html">Guides</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="aboutus.php">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="guides.php">Guides</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.php">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="contactus.php">Contact Us</a></li>
             </ul>
@@ -291,7 +309,7 @@
             <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="transport.php">Transportation</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Housing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="housing.php">Housing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Tiffin Service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Jobs</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Driving Instructor</a></li>

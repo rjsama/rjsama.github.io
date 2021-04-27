@@ -1,16 +1,17 @@
 <html>
     <head>
-        <title> Help4All :: Services </title>
+        <title> Help4All :: My Account </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
         <link href="assets/img/favicon.png" rel="icon">
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
     </head>
     
     <body>
@@ -28,18 +29,8 @@
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
                     </nav>
-                    <?php
-                    session_start();
-                    $loginDisp = "flex";
-                    $nameDisp = "none";
-                    if(isset($_SESSION['userId'])){
-                        $loginDisp = "none";
-                        $nameDisp = "flex";
-                    }
-                    ?>
                     <span style="margin-left:2%;margin-right:2%;">
-                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
-                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
+                        <a id="nameLink" href="account.php" style="color:#ffffff;">Welcome, <?php session_start(); echo $_SESSION['name'] ?></a>
                     </span>
                     <span>
                         <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
@@ -51,52 +42,135 @@
             <div class="banner-container">
                 <h1> Welcome to Help4All Immigration </h1>
                 <h2> We are here to help international immigrants </h2>
-                <span style="display: inline-block; background: #000000; padding: 6px 20px 8px 20px; color: #FFFFFF; border-radius: 50px; position: relative;"><a href="services.php" class="about-btn">Our Services <i class = "bx bx-chevron-right"></i></a></span>
             </div>
         </section> <!-- End Banner-->
 
-        <!--Services-->
+        <!--Guides-->
 
-        <section id = "service-section" class = "services">
+        <section id = "contactform" class = "contactform">
             <div class = "container">
                 <div class = "section-title">
-                    <h2> Services </h2>
-                    <p>Explore our services</p>
-                </div>
-                <div style="display:<?php echo$loginDisp ?>">
-                    <p style="width:100%;text-align:center">Please <a href="login.php" style="font-weight:bold">Login/Signup</a> to access our Services.</p>
-                </div>
-                <div class="service-icons" style="display:<?php echo $nameDisp ?>">
-                    <div class="service-icon-div">
-                        <a id="transport" href="transport.php"><img src="assets/img/car_black_48dp.png" alt="black car icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="housing" href="housing.php"><img src="assets/img/house_black_48dp.png" alt="black house icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="tiffin" href="tiffin.php"><img src="assets/img/restaurant_black_48dp.png" alt="black spoon fork icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="jobs" href="jobs.php"><img src="assets/img/work_black_48dp.png" alt="black briefcase icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="driving" href="driving.php"><img src="assets/img/driving_black_48dp.png" alt="black car icon"></a>
-                    </div>
+                <h2>My Account</h2>
+                <hr>
                 </div>
 
-                <div class="icon-titles" style="display:<?php echo $nameDisp ?>">
-                    <p>Transportation</p>
-                    <p>Housing</p>
-                    <p>Tiffin Service</p>
-                    <p>Jobs</p>
-                    <p>Driving Instructor</p>
-                </div>
-                <div style="padding-top:20px">
-                    <p style="text-align: center;">If you have any queries, you may <strong><a href="contactus.php">Contact Us</a></strong></p>
+                <?php
+                require 'mysqli_connect.php';
+                function redirect_user($page = 'index.php'){
+                    $url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+                    $url = rtrim($url, '/\\');
+                    $url .= '/'.$page;
+                    header("Location: $url");
+                    exit();
+                }
+
+                $userid = $_SESSION['userId'];
+
+                $q = "SELECT u.userId, u.role, u.name, u.email, u.phone, u.address, ims.statusType FROM users u INNER JOIN immigrationstatus ims on u.immigrantStatus = ims.statusId WHERE userId = '$userid' AND accountStatus = 'confirmed'";
+                $r = @mysqli_query($dbc, $q);
+
+                if(mysqli_num_rows($r) == 1){
+                    $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+                    
+                    $name = $row['name'];
+                    $email = $row['email'];
+                    $phone = $row['phone'];
+                    $addr = $row['address'];
+                    $imstatus = $row['statusType'];
+                    $sp_userId = $row['userId'];
+
+                    $serviceTypes = [];
+                    $stdisp = "none";
+                    $s1 = '';
+                    $s2 = '';
+                    $s3 = '';
+                    $s4 = '';
+                    $s5 = '';
+                    $s6 = '';
+
+                    if($row['role'] == 3){
+                        $stdisp = "";
+                        $q1 = "SELECT serviceTypeId FROM user_servicetype_map WHERE userId = '$sp_userId'";
+                        $r1 = @mysqli_query($dbc, $q1);
+                        while (($row = mysqli_fetch_array($r1, MYSQLI_ASSOC))) {
+                            switch($row['serviceTypeId']){
+                                case 1:
+                                    $airport = 1;
+                                    $s1 = "Airport Pickup/Drop,";
+                                    break;
+                                case 2:
+                                    $ride = 2;
+                                    $s2 = "Ride Share,";
+                                    break;
+                                case 3:
+                                    $housing = 3;
+                                    $s3 = "Housing,";
+                                    break;
+                                case 4:
+                                    $job = 4;
+                                    $s4 = "Jobs,";
+                                    break;
+                                case 5:
+                                    $tiffin = 5;
+                                    $s5 = "Tiffin Service,";
+                                    break;
+                                case 6:
+                                    $driving= 6;
+                                    $s6 = "Driving Instructor";
+                                    break;
+                                default:
+                                break;
+                            }
+                        }
+
+                        $stypes = $s1.$s2.$s3.$s4.$s5.$s6;
+                    }
+
+                    
+
+                } else {
+                    echo '<p style="text-align:center">System Error! Unable to fetch account details.</p>';
+                    // Debugging message:
+                    // echo '<p>' . mysqli_error($dbc) . '<br><br>Query: ' . $q . '</p>';
+        
+                } // End of if ($r) IF.
+        
+                mysqli_close($dbc);
+                ?>
+
+                <div id="contact-form-div">
+                    <table style="font-size:1.2em; margin:auto">
+                        <tr>
+                            <td style="width:60%">Name:</td><td><?php echo $name ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td><td><?php echo $email ?></td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td><td><?php echo $phone ?></td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td><td><?php echo $addr ?></td>
+                        </tr>
+                        <tr>
+                            <td>Immigrant Status:</td><td><?php echo $imstatus ?></td>
+                        </tr>
+                        <tr style="display:<?php echo $stdisp ?>">
+                            <td>Service Types:</td><td><?php echo $stypes ?></td>
+                        </tr>
+                    </table>
+                    <div style="width:100%;display:flex;justify-content:center;align-items:center;margin-top:2%">
+                        <a href="editUser.php" style="text-decoration:none;color:#ffffff;"><button class="btn btn-primary" style="display:flex;padding:0.5rem 2rem">Edit</button></a>
+                        <span style="margin-left:2%;display:<?php echo $stdisp ?>">
+                            <a href="managelistings.php" style="text-decoration:none;color:#ffffff"><button class="btn btn-primary" style="display:flex;padding:0.5rem 2rem">Manage Listings</button></a>
+                        </span>
+                        <span style="margin-left:2%;display:<?php echo $stdisp ?>">
+                            <a href="viewRequests.php" style="text-decoration:none;color:#ffffff"><button class="btn btn-primary" style="display:flex;padding:0.5rem 2rem">View User Requests</button></a>
+                        </span>
+                        <span style="margin-left:2%">
+                            <a href="viewReqByUser.php" style="text-decoration:none;color:#ffffff"><button class="btn btn-primary" style="display:flex;padding:0.5rem 2rem">View My Requests</button></a>
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -205,9 +279,6 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-        <script>
-            document.getElementById('service-section').scrollIntoView();
-        </script>
     </body>
 
 </html>

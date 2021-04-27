@@ -1,16 +1,17 @@
 <html>
     <head>
-        <title> Help4All :: Services </title>
+        <title> Help4All :: About Us </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
         <link href="assets/img/favicon.png" rel="icon">
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
     </head>
     
     <body>
@@ -54,50 +55,78 @@
                 <span style="display: inline-block; background: #000000; padding: 6px 20px 8px 20px; color: #FFFFFF; border-radius: 50px; position: relative;"><a href="services.php" class="about-btn">Our Services <i class = "bx bx-chevron-right"></i></a></span>
             </div>
         </section> <!-- End Banner-->
-
-        <!--Services-->
-
-        <section id = "service-section" class = "services">
-            <div class = "container">
+        
+        <!--About-->
+        <section id = "aboutus" class="aboutus">
+            <div class="container">
                 <div class = "section-title">
-                    <h2> Services </h2>
-                    <p>Explore our services</p>
+                    <h2> About Us </h2>
                 </div>
-                <div style="display:<?php echo$loginDisp ?>">
-                    <p style="width:100%;text-align:center">Please <a href="login.php" style="font-weight:bold">Login/Signup</a> to access our Services.</p>
-                </div>
-                <div class="service-icons" style="display:<?php echo $nameDisp ?>">
-                    <div class="service-icon-div">
-                        <a id="transport" href="transport.php"><img src="assets/img/car_black_48dp.png" alt="black car icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="housing" href="housing.php"><img src="assets/img/house_black_48dp.png" alt="black house icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="tiffin" href="tiffin.php"><img src="assets/img/restaurant_black_48dp.png" alt="black spoon fork icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="jobs" href="jobs.php"><img src="assets/img/work_black_48dp.png" alt="black briefcase icon"></a>
-                    </div>
-
-                    <div class="service-icon-div">
-                        <a id="driving" href="driving.php"><img src="assets/img/driving_black_48dp.png" alt="black car icon"></a>
-                    </div>
-                </div>
-
-                <div class="icon-titles" style="display:<?php echo $nameDisp ?>">
-                    <p>Transportation</p>
-                    <p>Housing</p>
-                    <p>Tiffin Service</p>
-                    <p>Jobs</p>
-                    <p>Driving Instructor</p>
-                </div>
-                <div style="padding-top:20px">
-                    <p style="text-align: center;">If you have any queries, you may <strong><a href="contactus.php">Contact Us</a></strong></p>
-                </div>
+                <p> We are dedicated to help international students and other immigrants who arrive in Ontario, Canada every year for higher studies and work. Through this website they will be able to avail essential services and information from the comfort of their home so that their journey in Canada can begin smoothly. </p>
+                <p><strong>Purpose:</strong></p>
+                <ul>
+                    <li>Provide assistance mainly to international students and other immigrants in general matters of interest</li>
+                    <li>Provide necessary information and services</li>
+                    <li>Provide viable help in a feasible and efficient manner</li>
+                    <li>Provide assistance to immigrants who are facing problems due to the COVID-19 pandemic</li>
+                </ul>
+                <p><strong>Services:</strong></p>
+                <ul>
+                    <li>Booking airport pickup/drop on arrival/departure respectively to various locations across Ontario, Canada.</li>
+                    <li>Assistance for temporary and permanent housing needs</li>
+                    <li>Assistance for availing tiffin services</li>
+                    <li>Assistance for job search</li>
+                    <li>Assistance for availing training for Drivers Licence test</li>
+                    <li>Assistance for booking flight tickets</li>
+                    <li>and much more...</li>
+                </ul>
+                <p><strong>Guides:</strong></p>
+                <ul>
+                    <li>How to get Canadian SIM card and mobile phone as per requirement</li>
+                    <li>How to apply for Social Insurance Number(SIN)</li>
+                    <li>How to apply for Driving Licence</li>
+                    <li>How to apply for various licences required for in demand jobs like forklift operator and security guard</li>
+                    <li>Where to buy essential items of daily use like food (both local and native), clothing, footwear and stationery</li>
+                    <li>How to apply for work permit or extend study permit</li>
+                    <li>How to apply for income tax</li>
+                    <li>and much more...</li>
+                </ul>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>For new arrivals:
+                        <ul>
+                            <li>One stop for all necessary services and information in order to get a smooth start to life in Ontario, Canada</li>
+                            <li>Avoid being misguided on important matters by getting assistance from experienced professionals</li>
+                            <li>Avoid being misguided on important matters by getting assistance from experienced professionals</li>
+                        </ul>
+                    </li>
+                    <li>For the ones already living in Canada:
+                        <ul>
+                            <li>Get assistance in extending study and work permits</li>
+                            <li>Get assistance in booking flight tickets without the risk of getting scammed</li>
+                            <li>Get assistance for Job search and related matters</li>
+                        </ul>
+                    </li>
+                    <li>For the ones suffering due to COVID-19:
+                        <ul>
+                            <li>Get assistance for job search and related matters in case of having being laid off</li>
+                            <li>Get information on relief provided by the government</li>
+                        </ul>
+                    </li>
+                    <li>For the government:
+                        <ul>
+                            <li>Information will reach further and penetrate more deeply into the masses</li>
+                            <li>Will help build an even better image of the government among immigrants if they get to know about various government policies</li>
+                        </ul>
+                    </li>
+                    <li>For the society:
+                        <ul>
+                            <li>Immigrants will be able to settle better in the society without much hassle to self or others</li>
+                            <li>People will get livelihood opportunities as we act as a bridge between the service providers and service seekers</li>
+                            <li>Help strengthen the bond in the community by providing ways and means to build better understanding among immigrants and residents</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -181,7 +210,7 @@
             <h4>Our Services</h4>
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="transport.php">Transportation</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="housing.php">Housing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="housing.html">Housing</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Tiffin Service</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Jobs</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Driving Instructor</a></li>
@@ -205,9 +234,7 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-        <script>
-            document.getElementById('service-section').scrollIntoView();
-        </script>
+      
     </body>
 
 </html>

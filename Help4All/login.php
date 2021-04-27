@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> Help4All :: Contact Us </title>
+        <title> Help4All :: Login </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
@@ -29,22 +29,7 @@
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
                     </nav>
-                    <?php
-                    session_start();
-                    $loginDisp = "flex";
-                    $nameDisp = "none";
-                    if(isset($_SESSION['userId'])){
-                        $loginDisp = "none";
-                        $nameDisp = "flex";
-                    }
-                    ?>
-                    <span style="margin-left:2%;margin-right:2%;">
-                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
-                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
-                    </span>
-                    <span>
-                        <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
-                    </span>
+                    <span style="margin-left:2%;margin-right:2%;"><a id="loginLink" href="login.php" style="color:#ffffff;">Login/Signup</a></span>
             </div>
         </header> 
         <!-- Banner Image-->
@@ -61,8 +46,8 @@
         <section id = "contactform" class = "contactform">
             <div class = "container">
                 <div class = "section-title">
-                <h2>Any Questions?</h2>
-                <p style="text-align: center;">If you have any questions/concerns/complaints you may contact us by filling up the form below.</p>
+                <h2>Login</h2>
+                <p style="text-align: center;">New User? <span><a href="register.php">Register</a></span></p>
                 </div>
 
                 <?php
@@ -82,55 +67,27 @@
                         $un = mysqli_real_escape_string($dbc, trim($_POST['uname']));
                     }
 
-                    $phnregex = "/^[0-9]{10}$/";
-
-                    if(!empty($_POST['phone'])){
-                        $phn = mysqli_real_escape_string($dbc, trim($_POST['phone']));
-                        if (preg_match_all($phnregex, $phn, $matches)){
-                            // echo 'TRUE!';
-                            
-                            // echo '<pre>'.print_r($matches, 1).'</pre>';
-                        } else {
-                            $errors[] = 'Please enter a valid phone number';
-                        }
-                    }
-
-                    if (!empty($_POST['email'])) {
-                        $e = mysqli_real_escape_string($dbc, trim($_POST['email']));
-                    }
-
-                    $cityregex = "/^[a-zA-Z]{4,}$/";
-                    if (!empty($_POST['city'])) {
-                        $c = mysqli_real_escape_string($dbc, trim($_POST['city']));
-                        if (preg_match_all($cityregex, $c, $matches)){
-                            // echo 'TRUE!';
-                            
-                            // echo '<pre>'.print_r($matches, 1).'</pre>';
-                        } else {
-                            $errors[] = 'Please enter a valid city name';
-                        }
-                    }
-
-                    if (!empty($_POST['province'])) {
-                        $prov = mysqli_real_escape_string($dbc, trim($_POST['province']));
-                    }
-                
-                    if (!empty($_POST['subject'])) {
-                        $sub = mysqli_real_escape_string($dbc, trim($_POST['email']));
-                    }
-
-                    if (!empty($_POST['description'])) {
-                        $qdesc = mysqli_real_escape_string($dbc, trim($_POST['description']));
+                    if(!empty($_POST['pswd'])){
+                        $pswd = mysqli_real_escape_string($dbc, trim($_POST['pswd']));
                     }
                 
                     if (empty($errors)) { 
-                        $q = "INSERT INTO queries (name, email, phone, city, province, subject, description) VALUES ('$un', '$e', '$phn', '$c', '$prov', '$sub', '$qdesc' )";
+                        $q = "SELECT username, password, userId, role, name, email FROM users WHERE username='$un' AND password = '$pswd' AND accountStatus = 'confirmed'";
                         $r = @mysqli_query($dbc, $q);
-                        if ($r) { 
-                            redirect_user('success.php');
+
+                        if(mysqli_num_rows($r) == 1){
+                            $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+                            
+                            session_start();
+                            $_SESSION['userId'] = $row['userId'];
+                            $_SESSION['name'] = $row['name'];
+                            $_SESSION['role'] = $row['role'];
+                            $_SESSION['uEmail'] = $row['email'];
+                            
+                            redirect_user();
                 
                         } else {
-                            redirect_user('error.php');
+                            echo '<p style="text-align:center">Login failed! Please try again later.</p>';
                 
                             // Debugging message:
                             // echo '<p>' . mysqli_error($dbc) . '<br><br>Query: ' . $q . '</p>';
@@ -158,48 +115,12 @@
                 ?>
 
                 <div id="contact-form-div">
-                    <form id="contact-query-form" action="contactus.php" method="post">
-                        <p><label>Name:</label><input type="text" name="uname" size="15" maxlength="60"></p>
-                        <p><label>Email:</label><input type="email" name="email" size="15" maxlength="60" required></p>
-                        <p><label>Phone:</label><input type="phone" name="phone" size="15" maxlength="10"></p>
-                        <p><label>City:</label><input type="text" name="city" size="15" maxlength="60" required></p>
-                        <p><label>Province:</label><select name="province">
-                            <option value="alberta">Alberta</option>
-                            <option value="bc">British Columbia</option>
-                            <option value="manitoba">Manitoba</option>
-                            <option value="newbrunswick">New Brunswick</option>
-                            <option value="newfoundland">Newfoundland and Labrador</option>
-                            <option value="nwterritories">Northwest Territories</option>
-                            <option value="Nova Scotia">Nova Scotia</option>
-                            <option value="nunavut">Nunavut</option>
-                            <option value="ontario" selected>Ontario</option>
-                            <option value="pei">Prince Edward Island</option>
-                            <option value="quebec">Quebec</option>
-                            <option value="saskatchewan">Saskatchewan</option>
-                            <option value="yukon">Yukon</option>
-                        </select></p>
-                        <p><label>Subject:</label><select name="subject">
-                            <option value="airportRide" selected>Airport Pickup/Drop</option>
-                            <option value="rideShare">Ride Share</option>
-                            <option value="housing">Housing</option>
-                            <option value="tiffin">Tiffin Service</option>
-                            <option value="job">Jobs</option>
-                            <option value="driving">Driving Instructor</option>
-                            <option value="sim">SIM Card</option>
-                            <option value="sin">SIN (Social Insurance Number)</option>
-                            <option value="driverLicence">Driver's Licence</option>
-                            <option value="otherLicence">Other Licence</option>
-                            <option value="essentials">Essential Items</option>
-                            <option value="studyPermit">Study Permit</option>
-                            <option value="workPermit">Work Permit</option>
-                            <option value="permitExtension">Visa and Permit Extension</option>
-                            <option value="incometax">Income Tax</option>
-                            <option value="safety">Safety and Security</option>
-                            <option value="other">Other</option>
-                        </select></p>
-                        <p><label>Description:</label><textarea name="description" rows="7" cols="60" maxlength="250" required></textarea></p>
-                        <p><label></label><input class="query-submit-btn" type="submit" value="Send"></p>
+                    <form id="contact-query-form" action="login.php" method="post">
+                        <p><label>Username:</label><input type="text" name="uname" size="15" maxlength="60" required></p>
+                        <p><label>Password:</label><input type="password" name="pswd" size="15" maxlength="60" required></p>
+                        <p><label></label><input class="query-submit-btn" type="submit" value="Login"></p>
                     </form>
+                    <p style="text-align:center"><a href="forgotPswd.php">Forgot Password</a></p>
                 </div>
             </div>
         </section>
@@ -308,6 +229,9 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
+        <script>
+            document.getElementById('contactform').scrollIntoView();
+        </script>
     </body>
 
 </html>

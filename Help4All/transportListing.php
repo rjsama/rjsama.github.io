@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> Help4All :: Contact Us </title>
+        <title> Help4All :: Transport Listing </title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href= "assets/css/style.css" rel="stylesheet">
@@ -29,18 +29,8 @@
                         <li> <a href = "contactus.php"> Contact Us </a> </li>
                     </ul>
                     </nav>
-                    <?php
-                    session_start();
-                    $loginDisp = "flex";
-                    $nameDisp = "none";
-                    if(isset($_SESSION['userId'])){
-                        $loginDisp = "none";
-                        $nameDisp = "flex";
-                    }
-                    ?>
                     <span style="margin-left:2%;margin-right:2%;">
-                        <a id="loginLink" href="login.php" style="color:#ffffff; display:<?php echo $loginDisp ?>">Login/Signup</a>
-                        <a id="nameLink" href="account.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Welcome, <?php echo $_SESSION['name'] ?></a>
+                        <a id="nameLink" href="account.php" style="color:#ffffff;">Welcome, <?php session_start(); echo $_SESSION['name'] ?></a>
                     </span>
                     <span>
                         <a id="logoutLink" href="logout.php" style="color:#ffffff; display:<?php echo $nameDisp ?>">Logout</a>
@@ -61,8 +51,8 @@
         <section id = "contactform" class = "contactform">
             <div class = "container">
                 <div class = "section-title">
-                <h2>Any Questions?</h2>
-                <p style="text-align: center;">If you have any questions/concerns/complaints you may contact us by filling up the form below.</p>
+                <h2>Add Listing</h2>
+                <p style="text-align: center;">Create a new transport listing here</p>
                 </div>
 
                 <?php
@@ -78,65 +68,43 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $errors = [];
                 
-                    if(!empty($_POST['uname'])){
-                        $un = mysqli_real_escape_string($dbc, trim($_POST['uname']));
+                    if(!empty($_POST['serviceType'])){
+                        $sType = mysqli_real_escape_string($dbc, trim($_POST['serviceType']));
                     }
 
-                    $phnregex = "/^[0-9]{10}$/";
-
-                    if(!empty($_POST['phone'])){
-                        $phn = mysqli_real_escape_string($dbc, trim($_POST['phone']));
-                        if (preg_match_all($phnregex, $phn, $matches)){
-                            // echo 'TRUE!';
-                            
-                            // echo '<pre>'.print_r($matches, 1).'</pre>';
-                        } else {
-                            $errors[] = 'Please enter a valid phone number';
-                        }
+                    if(!empty($_POST['baseCharge'])){
+                        $bc = mysqli_real_escape_string($dbc, trim($_POST['baseCharge']));
                     }
 
-                    if (!empty($_POST['email'])) {
-                        $e = mysqli_real_escape_string($dbc, trim($_POST['email']));
+                    if(!empty($_POST['chargePerKM'])){
+                        $cpkm = mysqli_real_escape_string($dbc, trim($_POST['chargePerKM']));
                     }
 
-                    $cityregex = "/^[a-zA-Z]{4,}$/";
-                    if (!empty($_POST['city'])) {
-                        $c = mysqli_real_escape_string($dbc, trim($_POST['city']));
-                        if (preg_match_all($cityregex, $c, $matches)){
-                            // echo 'TRUE!';
-                            
-                            // echo '<pre>'.print_r($matches, 1).'</pre>';
-                        } else {
-                            $errors[] = 'Please enter a valid city name';
-                        }
+                    if(!empty($_POST['luggage'])){
+                        $lug = mysqli_real_escape_string($dbc, trim($_POST['luggage']));
                     }
 
-                    if (!empty($_POST['province'])) {
-                        $prov = mysqli_real_escape_string($dbc, trim($_POST['province']));
-                    }
-                
-                    if (!empty($_POST['subject'])) {
-                        $sub = mysqli_real_escape_string($dbc, trim($_POST['email']));
+                    if(!empty($_POST['desc'])){
+                        $desc = mysqli_real_escape_string($dbc, trim($_POST['desc']));
                     }
 
-                    if (!empty($_POST['description'])) {
-                        $qdesc = mysqli_real_escape_string($dbc, trim($_POST['description']));
-                    }
+                    $s_userId = $_SESSION['userId'];
                 
                     if (empty($errors)) { 
-                        $q = "INSERT INTO queries (name, email, phone, city, province, subject, description) VALUES ('$un', '$e', '$phn', '$c', '$prov', '$sub', '$qdesc' )";
+                        $q = "INSERT INTO transport_listing (serviceType, baseCharge, ChargePerKM, status, luggage, description, userId, timestamp) VALUES ('$sType', '$bc', '$cpkm', 'confirmed', '$lug', '$desc', '$s_userId', NOW() )";
                         $r = @mysqli_query($dbc, $q);
                         if ($r) { 
-                            redirect_user('success.php');
-                
+                            echo '<p style="text-align:center">Listing created successfully.</p>';
+                            include("includes/footer.html");
+	                        exit();
                         } else {
                             redirect_user('error.php');
-                
+
                             // Debugging message:
                             // echo '<p>' . mysqli_error($dbc) . '<br><br>Query: ' . $q . '</p>';
-                
+
                         } // End of if ($r) IF.
-                
+
                         mysqli_close($dbc);
                         
                         exit();
@@ -158,47 +126,13 @@
                 ?>
 
                 <div id="contact-form-div">
-                    <form id="contact-query-form" action="contactus.php" method="post">
-                        <p><label>Name:</label><input type="text" name="uname" size="15" maxlength="60"></p>
-                        <p><label>Email:</label><input type="email" name="email" size="15" maxlength="60" required></p>
-                        <p><label>Phone:</label><input type="phone" name="phone" size="15" maxlength="10"></p>
-                        <p><label>City:</label><input type="text" name="city" size="15" maxlength="60" required></p>
-                        <p><label>Province:</label><select name="province">
-                            <option value="alberta">Alberta</option>
-                            <option value="bc">British Columbia</option>
-                            <option value="manitoba">Manitoba</option>
-                            <option value="newbrunswick">New Brunswick</option>
-                            <option value="newfoundland">Newfoundland and Labrador</option>
-                            <option value="nwterritories">Northwest Territories</option>
-                            <option value="Nova Scotia">Nova Scotia</option>
-                            <option value="nunavut">Nunavut</option>
-                            <option value="ontario" selected>Ontario</option>
-                            <option value="pei">Prince Edward Island</option>
-                            <option value="quebec">Quebec</option>
-                            <option value="saskatchewan">Saskatchewan</option>
-                            <option value="yukon">Yukon</option>
-                        </select></p>
-                        <p><label>Subject:</label><select name="subject">
-                            <option value="airportRide" selected>Airport Pickup/Drop</option>
-                            <option value="rideShare">Ride Share</option>
-                            <option value="housing">Housing</option>
-                            <option value="tiffin">Tiffin Service</option>
-                            <option value="job">Jobs</option>
-                            <option value="driving">Driving Instructor</option>
-                            <option value="sim">SIM Card</option>
-                            <option value="sin">SIN (Social Insurance Number)</option>
-                            <option value="driverLicence">Driver's Licence</option>
-                            <option value="otherLicence">Other Licence</option>
-                            <option value="essentials">Essential Items</option>
-                            <option value="studyPermit">Study Permit</option>
-                            <option value="workPermit">Work Permit</option>
-                            <option value="permitExtension">Visa and Permit Extension</option>
-                            <option value="incometax">Income Tax</option>
-                            <option value="safety">Safety and Security</option>
-                            <option value="other">Other</option>
-                        </select></p>
-                        <p><label>Description:</label><textarea name="description" rows="7" cols="60" maxlength="250" required></textarea></p>
-                        <p><label></label><input class="query-submit-btn" type="submit" value="Send"></p>
+                    <form id="contact-query-form" action="transportListing.php" method="post">
+                        <p><label>Service Type:</label><select name="serviceType"><option value="1">Airport Pickup/Drop</option><option value="2">Ride Share</option></select></p>
+                        <p><label>Base Charge:</label><input type="number" id="baseCharge" name="baseCharge" size="15" min="10" max="100" required></p>
+                        <p><label>Charge Per KM:</label><input type="text" id="chargePerKM" name="chargePerKM" size="15" required></p>
+                        <p><label>Luggage Capacity:</label><input type="number" id="luggage" name="luggage" size="15" min="0" max="10" required></p>
+                        <p><label>Description:</label><textarea id="desc" name="desc" rows="7" cols="60" maxlength="250"></textarea></p>
+                        <p><label></label><input class="query-submit-btn" type="submit" value="Create Listing"></p>
                     </form>
                 </div>
             </div>
