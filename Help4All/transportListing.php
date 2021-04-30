@@ -219,9 +219,9 @@
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="transport.php">Transportation</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="housing.php">Housing</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Tiffin Service</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Jobs</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Driving Instructor</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="startsoon.php">Tiffin Service</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="startsoon.php">Jobs</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="startsoon.php">Driving Instructor</a></li>
             </ul>
 
         </div>

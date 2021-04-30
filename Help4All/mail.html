@@ -1,0 +1,60 @@
+<!-- <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $sender = $_POST['email'];
+    $recipient = 'rajatmahajanrm26@gmail.com';
+    
+    $subject = "php mail test";
+    $message = "php test message";
+    $headers = 'From:' . $sender;
+    
+    if (mail($recipient, $subject, $message, $headers))
+    {
+        echo "Message accepted";
+    }
+    else
+    {
+        echo "Error: Message not accepted";
+    }
+}
+?>
+
+<form action="mail.php" method="post">
+    <input type="email" name="email">
+    <input type="submit" value="submit">
+</form> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Send Mail</title>
+<script src=
+	"https://smtpjs.com/v3/smtp.js">
+</script>
+
+<script type="text/javascript">
+	function sendEmail() {
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "help4allnoreply123@gmail.com",
+		Password: "MyPs@107",
+		To: 'rajatmahajanrm26@gmail.com',
+		From: "help4allnoreply123@gmail.com",
+		Subject: "Sending Email using javascript",
+		Body: "Well that was easy!!",
+	})
+		.then(function (message) {
+		alert("mail sent successfully")
+		});
+	}
+</script>
+</head>
+
+<body>
+<form method="post">
+	<input type="button" value="Send Email"
+		onclick="sendEmail()" />
+</form>
+</body>
+
+</html>

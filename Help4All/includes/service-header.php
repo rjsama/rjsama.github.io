@@ -74,15 +74,15 @@
                     </div>
 
                     <div class="service-icon-div">
-                        <a id="tiffin" href="tiffin.php"><img src="assets/img/restaurant_black_48dp.png" alt="black spoon fork icon"></a>
+                        <a id="tiffin" href="startsoon.php"><img src="assets/img/restaurant_black_48dp.png" alt="black spoon fork icon"></a>
                     </div>
 
                     <div class="service-icon-div">
-                        <a id="jobs" href="jobs.php"><img src="assets/img/work_black_48dp.png" alt="black briefcase icon"></a>
+                        <a id="jobs" href="startsoon.php"><img src="assets/img/work_black_48dp.png" alt="black briefcase icon"></a>
                     </div>
 
                     <div class="service-icon-div">
-                        <a id="driving" href="driving.php"><img src="assets/img/driving_black_48dp.png" alt="black car icon"></a>
+                        <a id="driving" href="startsoon.php"><img src="assets/img/driving_black_48dp.png" alt="black car icon"></a>
                     </div>
                 </div>
 
